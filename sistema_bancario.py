@@ -36,11 +36,10 @@ while N > 0:
         if saldo <= 0:
             print("Saldo insuficiente na conta. Faça um depósito.")
 
-        elif valor_saque > 0 and valor_saque == limite_saque:
+        elif valor_saque > 0 or valor_saque == limite_saque:
             print("Saque efetuado com sucesso!")
 
             qtde_saque += 1
-          #  print(f"limite diário de saques = {qtde_saque} de 3")
 
         elif valor_saque > limite_saque:
             print("O limite de saque permitido é de R$500. Insira um novo valor.")
@@ -51,11 +50,13 @@ while N > 0:
         if qtde_saque >= 4:
             print("Limite de saque excedido! Tente novamente amanhã.")
         
+        saldo = saldo - valor_saque
+
     elif opcao == "3":
         print(f"""
             EXTRATO BANCÁRIO
             ---------------------------------------------
-            Saldo atual: R$ {saldo - valor_saque}
+            Saldo atual: R$ {saldo}
             Limite de saque: R$ {limite_saque}
             Saques disponíveis: {qtde_saque} de 3
             ---------------------------------------------
